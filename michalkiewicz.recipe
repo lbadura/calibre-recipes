@@ -1,8 +1,7 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 __license__	= 'GPL v3'
-__author__ = 'Łukasz Badura - http://www.badurowie.org'
+__author__ = u'\u0141ukasz Badura - http://www.badurowie.org'
 __version__ = 'v. 0.1'
 '''
 http://www.michalkiewicz.pl
@@ -12,13 +11,21 @@ import string, re
 from calibre.web.feeds.recipes import BasicNewsRecipe
 
 class MichalkiewiczRecipe(BasicNewsRecipe):
-    encoding = 'utf-8'
-    author = u'Łukasz Badura - http://www.badurowie.org'
-    title       = u'Stanislaw Michalkiewicz'
-    description = u'Essays and articles by Stanisław Michalkiewicz'
     language = 'pl'
+    encoding = 'utf-8'
+    __author__ = u'\u0141ukasz Badura - http://www.badurowie.org'
+
+    title       = u'Stanis\u0142aw Michalkiewicz'
+    description = u'Essays and articles by Stanis\u0142aw Michalkiewicz'
+    publisher   = u'Stanis\u0142aw Michalkiewicz'
+    category    = 'Politics, Essay'
+
     oldest_article = 7.0
     recursions = 0
     no_stylesheets = False
     no_javascripts = True
     feeds = [ 'http://www.michalkiewicz.pl/rss.xml' ]
+
+    remove_tags = [ 
+                      dict(attrs={'id':["LEWA", "PRAWA"]}) 
+                  ]
